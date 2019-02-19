@@ -90,7 +90,7 @@ def stupid():
 if __name__ == '__main__':
     
     error_layer = np.zeros((len(mapping),))
-    train_data = get_data('monday_reduced.csv')
+    train_data = get_data('C:/CICIDS/monday_reduced.csv')
     shape = np.shape(train_data)
    
     
@@ -102,7 +102,7 @@ if __name__ == '__main__':
     ensemble_layer, outer_layer = train(train_data, shape, mapping, ensemble_layer, outer_layer)
     del train_data
     print("Done Training")
-    data2 = get_data('tuesday_reduced.csv')
+    data2 = get_data('C:/CICIDS/tuesday_reduced.csv')
     errors = test(data2, ensemble_layer, outer_layer, mapping)
     np.savetxt('errors_tuesday_ensemble.csv', errors)
 

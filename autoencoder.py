@@ -18,7 +18,7 @@ class Autoencoder(object):
         self.x = tf.placeholder(tf.float32, [None, self.n_features])
         self.hidden = tf.nn.relu(tf.add(tf.matmul(self.x, self.weights['w1']), self.weights['b1']))
        # self.hidden2 = tf.nn.sigmoid(tf.add(tf.matmul(self.hidden, self.weights['w3']), self.weights['b3']))
-        self.reconstruction = tf.sigmoid(tf.add(tf.matmul(self.hidden, self.weights['w2']), self.weights['b2']))
+        self.reconstruction = tf.add(tf.matmul(self.hidden, self.weights['w2']), self.weights['b2'])
 
         # cost
         self.cost = tf.reduce_mean(tf.square(self.reconstruction - self.x))
